@@ -1,8 +1,14 @@
 package lt.viko.eif;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
 import java.util.List;
 
+
+@XmlType(propOrder = {"name", "country", "city", "founded", "bookList"})
+@XmlRootElement( name = "Publisher")
 public class Publisher {
 
     protected String name;
@@ -18,30 +24,44 @@ public class Publisher {
         this.founded = founded;
     }
 
-    public void AddBook(Book b) {
-        bookList.add(b);
+    public Publisher() {
+
+    }
+    @XmlElement(name = "bookList")
+
+    public void setBook(Book b) {
+        this.bookList.add(b);
+    }
+
+    public void addBook(Book b) {
+        this.bookList.add(b);
     }
 
     public String getName() {
         return name;
     }
 
+    @XmlElement(name = "name")
     public void setName(String name) {
         this.name = name;
     }
+
 
     public String getCountry() {
         return country;
     }
 
+    @XmlElement(name="country")
     public void setCountry(String country) {
         this.country = country;
     }
+
 
     public String getCity() {
         return City;
     }
 
+    @XmlElement(name = "city")
     public void setCity(String city) {
         City = city;
     }
@@ -50,6 +70,7 @@ public class Publisher {
         return founded;
     }
 
+    @XmlElement(name = "founded")
     public void setFounded(int founded) {
         this.founded = founded;
     }

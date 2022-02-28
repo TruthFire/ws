@@ -1,8 +1,10 @@
 package lt.viko.eif;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
 import java.util.List;
-
+@XmlType(propOrder = {"name", "circultion", "published"})
 public class Book {
 
     protected int id;
@@ -11,14 +13,16 @@ public class Book {
     protected List<Author> authors = new ArrayList();
     protected int published;
     protected Rating rating;
+    protected Category category;
 
-    public Book(int id, String name, int circulation, Author author, int published, Rating rating) {
+    public Book(int id, String name, int circulation, Author author, int published, Rating rating, Category cat) {
         this.id = id;
         this.name = name;
         this.circulation = circulation;
-        authors.add(author);
+        //authors.add(author);
         this.published = published;
         this.rating = rating;
+        this.category = cat;
     }
 
     public int getId() {
@@ -33,6 +37,7 @@ public class Book {
         return name;
     }
 
+    @XmlElement(name="name")
     public void setName(String name) {
         this.name = name;
     }
@@ -41,6 +46,7 @@ public class Book {
         return circulation;
     }
 
+    @XmlElement(name = "circulation")
     public void setCirculation(int circulation) {
         this.circulation = circulation;
     }
@@ -57,6 +63,7 @@ public class Book {
         return published;
     }
 
+    @XmlElement(name = "published")
     public void setPublished(int published) {
         this.published = published;
     }
@@ -79,7 +86,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return String.format("Book: %s. Id: %d. Rating: %s \n\t Author: %s\n\tCirculation: %d;  Published: %d\n",
-                this.name, this.id, this.rating, getAuthorListString(), this.circulation, this.published);
+        return String.format("Book: %s(%s). Id: %d. Rating: %s \n\t Author: %s\n\tCirculation: %d;  Published: %d\n",
+                this.name, this.category.toString(), this.id, this.rating, getAuthorListString(), this.circulation, this.published);
     }
 }

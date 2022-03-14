@@ -14,15 +14,10 @@ public class Main {
 
     public static void main(String[] args) throws JAXBException {
 
-
-
-        List<Publisher> publishers = new ArrayList();
+        Publishers publishers = new Publishers();
 
         Author jr = new Author("Joanne", "Rowling", "31-07-1965");
         Author rb = new Author("Ray", "Bradburry", "22-08-1920");
-
-        Category f = new Category("Fantasy", 1);
-        Category ant = new Category("Antiutopia",3);
 
         Publisher bp = new Publisher("Bloomsburry publishing", "UK", "London", 1986);
         Publisher bb = new Publisher("Bellantine books", "USA", "New York", 1952);
@@ -31,27 +26,30 @@ public class Main {
         Rating r1 = new Rating(4.4, 19852);
 
         Book b0 = new Book(0,"Harry Potter and the Chamber of Secrets", 1000000,
-        jr, 1998, r0, f);
-        Book b1 = new Book(1,"Farenheit 451", 10000000, rb, 1953, r1, ant);
+        jr, 1998, r0);
+        Book b1 = new Book(1,"Farenheit 451", 10000000, rb, 1953, r1);
+
+        b0.setCategory(new Category("Fantasy", 1));
+        b1.setCategory(new Category("Antiutopia", 2));
 
 
-        bp.addBook(b0);
-        bb.addBook(b1);
+        bp.getBooks().add(b0);
+        bb.getBooks().add(b1);
 
-        publishers.add(bp);
-        publishers.add(bb);
+
+        publishers.getPublishers().add(bp);
+        publishers.getPublishers().add(bb);
+
+
 
         /*for (Publisher p: publishers) {
             System.out.println(p);
         }*/
 
-        JAXBContext jaxbContext = JAXBContext.newInstance(Publisher.class);
-        Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+        Marshallizer m = new Marshallizer();
+        m.MarshallizePublishers(publishers);
 
-        jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-
-        jaxbMarshaller.marshal(bb, new File("publisher.xml"));
-        jaxbMarshaller.marshal(bb, System.out);
+        m.UnMarshallizePublishers(new File("publishers.xml"));
 
 
     }

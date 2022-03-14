@@ -1,5 +1,6 @@
 package lt.viko.eif;
 
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
 
 public class Author {
@@ -14,9 +15,36 @@ public class Author {
         this.dob = dob;
     }
 
+    public Author() {
+
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurename() {
+        return surename;
+    }
+
+    public void setSurename(String surename) {
+        this.surename = surename;
+    }
+
+    public String getDob() {
+        return dob;
+    }
+
+    public void setDob(String dob) {
+        this.dob = dob;
+    }
 
     @Override
     public String toString() {
-        return String.format("%s %s. \n\t\t Date of birth: %s\n", this.name, this.surename, this.dob);
+        return String.format("%s %s. \n\t\tDate of birth: %s", this.name, this.surename, this.dob);
     }
 }

@@ -7,15 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-@XmlType(propOrder = {"name", "country", "city", "founded", "bookList"})
-@XmlRootElement( name = "Publisher")
+@XmlType(propOrder = {"name", "country", "city", "founded", "books"})
 public class Publisher {
 
     protected String name;
     protected String country;
     protected String City;
     protected int founded;
-    protected List<Book> bookList = new ArrayList();
+    protected List<Book> books = new ArrayList();
 
     public Publisher(String name, String country, String city, int founded) {
         this.name = name;
@@ -27,15 +26,20 @@ public class Publisher {
     public Publisher() {
 
     }
-    @XmlElement(name = "bookList")
-
-    public void setBook(Book b) {
-        this.bookList.add(b);
+    @XmlElement(name = "books")
+    public void setBooks(List<Book> b) {
+        this.books = b;
     }
 
-    public void addBook(Book b) {
-        this.bookList.add(b);
+
+    public List<Book> getBooks(){
+        return this.books;
+
     }
+
+    /*public void addBook(Book b) {
+        this.bookList.add(b);
+    }*/
 
     public String getName() {
         return name;
@@ -77,7 +81,7 @@ public class Publisher {
 
     public String getBookListString() {
         String bl = "";
-        for (Book b: bookList) {
+        for (Book b: books) {
             bl += b.toString();
         }
         return bl;

@@ -9,6 +9,8 @@ public class Rating {
         this.ratedBy = ratedBy;
     }
 
+    public Rating() { }
+
     public double getRating() {
         return rating;
     }

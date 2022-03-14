@@ -9,6 +9,10 @@ public class Category {
         Place = place;
     }
 
+    public Category() {
+
+    }
+
     public String getName() {
         return Name;
     }

@@ -26,24 +26,14 @@ public class Main {
         b0.setCategory(new Category("Fantasy", 1));
         b1.setCategory(new Category("Antiutopia", 2));
 
-
         bp.getBooks().add(b0);
         bb.getBooks().add(b1);
-
 
         publishers.getPublishers().add(bp);
         publishers.getPublishers().add(bb);
 
-        List<Publisher> pblshrs = new ArrayList<>();
-        pblshrs.add(bp);
-        pblshrs.add(bb);
-
-        for (Publisher p: pblshrs) {
-            System.out.println(p);
-        }
-
         Marshallizer m = new Marshallizer();
-        m.MarshallerPublishers(publishers);
+        m.MarshallPublishers(publishers);
 
         m.UnMarshallizePublishers(new File("publishers.xml"));
 

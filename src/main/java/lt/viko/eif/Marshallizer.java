@@ -12,15 +12,34 @@ public class Marshallizer {
 
     }
 
-    public void MarshallerPublishers(Publishers p) throws JAXBException {
+    /**
+     * Creates XML file with POJO data
+     * @param publishers Publishers
+     * @throws JAXBException
+     */
+
+    public void MarshallPublishers(Publishers publishers) throws JAXBException {
+        this.MarshallPublishers(publishers, "publishers");
+    }
+
+    public void MarshallPublishers(Publishers publishers, String filename) throws JAXBException {
         JAXBContext jaxbContext = JAXBContext.newInstance(Publishers.class);
         Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
 
         jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
-        jaxbMarshaller.marshal(p, new File("publishers.xml"));
-        jaxbMarshaller.marshal(p, System.out);
+        jaxbMarshaller.marshal(publishers, new File(filename + ".xml"));
+        jaxbMarshaller.marshal(publishers, System.out);
     }
+
+
+
+    /**
+     * Generates POJO of XML file
+     * @param file File type
+     * @return publishers POJO
+     * @throws JAXBException
+     */
 
     public Publishers UnMarshallizePublishers(File file) throws JAXBException {
         JAXBContext jaxbContext = JAXBContext.newInstance(Publishers.class);

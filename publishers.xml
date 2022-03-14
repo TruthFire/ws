@@ -20,8 +20,8 @@
             <circulation>1000000</circulation>
             <published>1998</published>
             <rating>
+                <bookRating>4.7</bookRating>
                 <ratedBy>23000</ratedBy>
-                <rating>4.7</rating>
             </rating>
         </books>
     </publisher>
@@ -45,8 +45,8 @@
             <circulation>10000000</circulation>
             <published>1953</published>
             <rating>
+                <bookRating>4.4</bookRating>
                 <ratedBy>19852</ratedBy>
-                <rating>4.4</rating>
             </rating>
         </books>
     </publisher>

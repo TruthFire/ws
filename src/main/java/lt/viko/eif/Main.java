@@ -1,19 +1,13 @@
 package lt.viko.eif;
 
-import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) throws JAXBException {
-
         Publishers publishers = new Publishers();
 
         Author jr = new Author("Joanne", "Rowling", "31-07-1965");
@@ -40,14 +34,16 @@ public class Main {
         publishers.getPublishers().add(bp);
         publishers.getPublishers().add(bb);
 
+        List<Publisher> pblshrs = new ArrayList<>();
+        pblshrs.add(bp);
+        pblshrs.add(bb);
 
-
-        /*for (Publisher p: publishers) {
+        for (Publisher p: pblshrs) {
             System.out.println(p);
-        }*/
+        }
 
         Marshallizer m = new Marshallizer();
-        m.MarshallizePublishers(publishers);
+        m.MarshallerPublishers(publishers);
 
         m.UnMarshallizePublishers(new File("publishers.xml"));
 

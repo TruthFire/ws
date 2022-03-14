@@ -1,26 +1,26 @@
 package lt.viko.eif;
 
 public class Rating {
-    protected double rating;
+    protected double BookRating;
     protected int ratedBy;
 
     public Rating(double rating, int ratedBy) {
-        this.rating = rating;
+        this.BookRating = rating;
         this.ratedBy = ratedBy;
     }
 
     public Rating() { }
 
-    public double getRating() {
-        return rating;
+    public double getBookRating() {
+        return BookRating;
     }
 
-    public void setRating(double rating) {
-        if(rating <= 5) {
-            this.rating = rating;
+    public void setBookRating(double bookRating) {
+        if(bookRating <= 5) {
+            this.BookRating = bookRating;
         }
         else {
-            rating = 5;
+            bookRating = 5;
         }
     }
 
@@ -34,6 +34,6 @@ public class Rating {
 
     @Override
     public String toString() {
-        return String.format("%1.1f (By %d users)", this.rating, this.ratedBy);
+        return String.format("%1.1f (By %d users)", this.BookRating, this.ratedBy);
     }
 }

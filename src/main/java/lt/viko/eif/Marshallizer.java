@@ -12,7 +12,7 @@ public class Marshallizer {
 
     }
 
-    public void MarshallizePublishers(Publishers p) throws JAXBException {
+    public void MarshallerPublishers(Publishers p) throws JAXBException {
         JAXBContext jaxbContext = JAXBContext.newInstance(Publishers.class);
         Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
 
@@ -25,8 +25,8 @@ public class Marshallizer {
     public Publishers UnMarshallizePublishers(File file) throws JAXBException {
         JAXBContext jaxbContext = JAXBContext.newInstance(Publishers.class);
 
-        Unmarshaller jaxbUnmarshller = jaxbContext.createUnmarshaller();
-        Publishers p = (Publishers)jaxbUnmarshller.unmarshal(file);
+        Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+        Publishers p = (Publishers)jaxbUnmarshaller.unmarshal(file);
 
         System.out.println(p);
 

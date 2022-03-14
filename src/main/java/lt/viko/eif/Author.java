@@ -1,8 +1,5 @@
 package lt.viko.eif;
 
-import javax.xml.bind.annotation.XmlRootElement;
-import java.util.Date;
-
 public class Author {
 
     String name;

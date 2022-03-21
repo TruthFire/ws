@@ -22,6 +22,13 @@ public class Marshallizer {
         this.MarshallPublishers(publishers, "publishers");
     }
 
+    /**
+     * Creates  XML file with spicified name using POJO data
+     * @param publishers publisher list
+     * @param filename filename (without .xml)
+     * @throws JAXBException
+     */
+
     public void MarshallPublishers(Publishers publishers, String filename) throws JAXBException {
         JAXBContext jaxbContext = JAXBContext.newInstance(Publishers.class);
         Marshaller jaxbMarshaller = jaxbContext.createMarshaller();

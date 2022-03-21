@@ -36,7 +36,5 @@ public class Main {
         m.MarshallPublishers(publishers);
 
         m.UnMarshallizePublishers(new File("publishers.xml"));
-
-
     }
 }

@@ -37,8 +37,8 @@ public class MarshallTest {
         m.MarshallPublishers(publishers, "test");
 
 
-        String newXmlToString = Files.readString(Path.of("test.xml"));
-        String goodXmlToString = Files.readString(Path.of("testResult.xml"));
+        String newXmlToString = Files.readString(Path.of("test.xml")).replaceAll("\n", "").replaceAll("\r", "");;
+        String goodXmlToString = Files.readString(Path.of("testResult.xml")).replaceAll("\n", "").replaceAll("\r", "");;
 
         Assertions.assertEquals(newXmlToString, goodXmlToString);
     }

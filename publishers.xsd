@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="publishers" type="publishersType"/>
+  <xs:complexType name="authorsType">
+    <xs:sequence>
+      <xs:element name="dob">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="31-07-1965"/>
+            <xs:enumeration value="22-08-1920"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="name">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Joanne"/>
+            <xs:enumeration value="Ray"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="surename">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Rowling"/>
+            <xs:enumeration value="Bradburry"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="categoryType">
+    <xs:sequence>
+      <xs:element name="name">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Fantasy"/>
+            <xs:enumeration value="Antiutopia"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="place">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ratingType">
+    <xs:sequence>
+      <xs:element name="bookRating">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="4.7"/>
+            <xs:enumeration value="4.4"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="ratedBy">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="23000"/>
+            <xs:enumeration value="19852"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="booksType">
+    <xs:sequence>
+      <xs:element name="id">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="0"/>
+            <xs:enumeration value="1"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="name">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Harry Potter and the Chamber of Secrets"/>
+            <xs:enumeration value="Farenheit 451"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="authorsType" name="authors"/>
+      <xs:element type="categoryType" name="category"/>
+      <xs:element name="circulation">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="1000000"/>
+            <xs:enumeration value="10000000"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="published">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="1998"/>
+            <xs:enumeration value="1953"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="ratingType" name="rating"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="publisherType">
+    <xs:sequence>
+      <xs:element name="name">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Bloomsburry publishing"/>
+            <xs:enumeration value="Bellantine books"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="country">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="UK"/>
+            <xs:enumeration value="USA"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="city">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="London"/>
+            <xs:enumeration value="New York"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="founded">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="1986"/>
+            <xs:enumeration value="1952"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="booksType" name="books"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="publishersType">
+    <xs:sequence>
+      <xs:element type="publisherType" name="publisher" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
